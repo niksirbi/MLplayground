@@ -1,14 +1,21 @@
 [project]
 name = "MLplayground"
-authors = [{name = "Niko Sirmpilatze", email= "niko.sirbiladze@gmail.com"}]
+authors = [{ name = "Niko Sirmpilatze", email = "niko.sirbiladze@gmail.com" }]
 description = "A simple Python package"
 readme = "README.md"
 requires-python = ">=3.9.0"
 dynamic = ["version"]
 
-dependencies = []
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "matplotlib",
+    "jupyter",
+    "scikit-learn",
+]
 
-license = {text = "BSD-3-Clause"}
+license = { text = "BSD-3-Clause" }
 
 classifiers = [
     "Development Status :: 2 - Pre-Alpha",
@@ -22,26 +29,21 @@ classifiers = [
 ]
 
 
-
 [project.optional-dependencies]
 dev = [
-  "pytest",
-  "pytest-cov",
-  "coverage",
-  "tox",
-  "black",
-  "mypy",
-  "pre-commit",
-  "ruff",
-  "setuptools_scm",
+    "pytest",
+    "pytest-cov",
+    "coverage",
+    "tox",
+    "black",
+    "mypy",
+    "pre-commit",
+    "ruff",
+    "setuptools_scm",
 ]
 
 [build-system]
-requires = [
-    "setuptools>=45",
-    "wheel",
-    "setuptools_scm[toml]>=6.2",
-]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]
@@ -53,9 +55,7 @@ exclude = ["tests*"]
 
 [tool.pytest.ini_options]
 addopts = "--cov=mlplayground"
-filterwarnings = [
-    "error",
-]
+filterwarnings = ["error"]
 
 [tool.black]
 target-version = ['py39', 'py310', 'py311']
@@ -66,16 +66,16 @@ line-length = 79
 
 [tool.check-manifest]
 ignore = [
-  ".yaml",
-  "tox.ini",
-  "tests/",
-  "tests/test_unit/",
-  "tests/test_integration/",
+    ".yaml",
+    "tox.ini",
+    "tests/",
+    "tests/test_unit/",
+    "tests/test_integration/",
 ]
 
 [tool.ruff]
 line-length = 79
-exclude = ["__init__.py","build",".eggs"]
+exclude = ["__init__.py", "build", ".eggs"]
 select = ["I", "E", "F"]
 fix = true
 
